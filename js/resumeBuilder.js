@@ -19,14 +19,14 @@ var bio = {
 	
 	display : function()
 	{
-		var newHTMLheaderName = HTMLheaderName.replace("%data%", this["name"]);
-		var newHTMLheaderRole = HTMLheaderRole.replace("%data%", this["role"]);
+		var newHTMLheaderName = HTMLheaderName.replace("%data%", this.name);
+		var newHTMLheaderRole = HTMLheaderRole.replace("%data%", this.role);
 
-		var newHTMLmobile = HTMLmobile.replace("%data%", this.contacts["mobile"]);
-		var newHTMLemail = HTMLemail.replace("%data%", this.contacts["email"]);
-		var newHTMLtwitter = HTMLtwitter.replace("%data%", this.contacts["twitter"]);
-		var newHTMLgithub = HTMLgithub.replace("%data%", this.contacts["github"]);
-		var newHTMLlocation = HTMLlocation.replace("%data%", this.contacts["location"]);
+		var newHTMLmobile = HTMLmobile.replace("%data%", this.contacts.mobile);
+		var newHTMLemail = HTMLemail.replace("%data%", this.contacts.email);
+		var newHTMLtwitter = HTMLtwitter.replace("%data%", this.contacts.twitter);
+		var newHTMLgithub = HTMLgithub.replace("%data%", this.contacts.github);
+		var newHTMLlocation = HTMLlocation.replace("%data%", this.contacts.location);
 
 		var newHTMLbioPic = HTMLbioPic.replace("%data%", this.biopic);
 		var newWelcomeMessage = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
