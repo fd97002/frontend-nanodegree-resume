@@ -42,6 +42,12 @@ var bio = {
 		$("#header").append(newWelcomeMessage);
 		$("#header").append(HTMLskillsStart);
 
+		$("#footerContacts").append(newHTMLmobile);
+		$("#footerContacts").append(newHTMLemail);
+		$("#footerContacts").append(newHTMLtwitter);
+		$("#footerContacts").append(newHTMLgithub);
+		$("#footerContacts").append(newHTMLlocation);
+
 		this.skills.forEach(
 			function(skill)
 			{
@@ -57,26 +63,18 @@ var bio = {
 var education = {
 	"schools": [
 		{
-			"name": "BPS",
-			"location": "Chamba",
-			"degree": "High School",
-			"dates": "01/04/1995",
-			"url": "www.google.com",
-			"majors": ["abc", "def"]
-		},
-		{
 			"name": "DAV",
 			"location": "Dalhousie",
 			"degree": "Senior Secondary",
-			"dates": "31/03/1997",
+			"dates": "1997",
 			"url": "www.google.com",
-			"majors": ["ghi", "jkl"]
+			"majors": ["Maths", "Physics", "Chemistry"]
 		},
 		{
 			"name": "BITS",
 			"location": "Pilani",
 			"degree": "BE",
-			"dates": "31/05/2001",
+			"dates": "2001",
 			"url": "www.bits-pilani.co.in",
 			"majors": ["CS"]
 		}	
@@ -85,7 +83,7 @@ var education = {
 		{
 			"title": "Front End Nanodegree",
 			"school": "Udacity",
-			"dates": "01/05/2017",
+			"dates": "2017",
 			"url": "www.udacity.com"
 		}
 	],
@@ -95,36 +93,39 @@ var education = {
 		function func(obj)
 		{
 			$("#education").append(HTMLschoolStart);
+			
 			var name = HTMLschoolName.replace("%data%", obj.name);
-			$(".education-entry:last").append(name);
 			var degree = HTMLschoolDegree.replace("%data%", obj.degree);
-			$(".education-entry:last").append(degree);
+			name+=degree;
+			$(".education-entry:last").append(name);
+
 		    var dates = HTMLschoolDates.replace("%data%", obj.dates);
 			$(".education-entry:last").append(dates);
+
 		    var loc = HTMLschoolLocation.replace("%data%", obj.location);
 			$(".education-entry:last").append(loc);
 
-			obj.majors.forEach( 
-				function(major)
-				{
-					HTMLschoolMajor.replace("%data%", major);
-					$(".education-entry:last").append(major);
-				});
+
+			var major = HTMLschoolMajor.replace("%data%", obj.majors.join());		
+			$(".education-entry:last").append(major);
 			
 		}
 
 		function func0(obj)	
 		{	
-			$(".education-entry:last").append(HTMLonlineClasses);
+			$("#education").append(HTMLonlineClasses);
+
 			var title = HTMLonlineTitle.replace("%data%", obj.title);
-			$(".education-entry:last").append(title);
 	   		var school = HTMLonlineSchool.replace("%data%", obj.school);
-			$(".education-entry:last").append(school);
-	    	var onlinedates = HTMLonlineDates.replace("%data%", obj.dates);
+	   		title+=school;
+	   		$("#education").append(HTMLschoolStart);
+			$(".education-entry:last").append(title);
+
+			var onlinedates = HTMLonlineDates.replace("%data%", obj.dates);
 			$(".education-entry:last").append(onlinedates);
+
 			var url = HTMLonlineURL.replace("%data%", obj.url);
 	    	$(".education-entry:last").append(url);
-	    	//console.log(obj);
 		}
 		
 		education.schools.forEach (func);	
@@ -236,14 +237,7 @@ var projects = {
 	}
 };
 
-
-
-$(document).click(function(loc) {
-  var x = loc.pageX;
-  var y = loc.pageY;
-  logClicks(x, y);
-});
-
+$("#mapDiv").append(googleMap);
 
 bio.display();
 projects.display();
@@ -251,26 +245,4 @@ work.display();
 education.display();
 
 
-// Your code goes here! Let me help you get started
 
-function locationizer(work_obj) {
-    var locations = [];
-    work_obj.jobs.forEach(
-        function funcloc(job) {
-            console.log("a");
-            locations.push(job["location"]);
-        }
-        );
-    return locations;
-}
-
-
-
-// Did locationizer() work? This line will tell you!
-//console.log(locationizer(work1));
-//function inName(name){
-	//internationalze the name
-//}
-
-
-//$("#main").append(internationalizeButton);
