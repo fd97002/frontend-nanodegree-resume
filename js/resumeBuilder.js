@@ -3,6 +3,10 @@ This is empty on purpose! Your code to build the resume will go here.
  */
 
 //bio
+
+/* jshint undef: false, unused: true */
+/* globals $ */
+
 var bio = {
 	"name": "Mohit Gupta",
 	"role": "Senior Engineering Manager",
