@@ -171,14 +171,15 @@ var work = {
 		{
 			$("#workExperience").append(HTMLworkStart);
 			var employer = HTMLworkEmployer.replace("%data%", job.employer);
-			$(".work-entry:last").append(employer);
 			var title = HTMLworkTitle.replace("%data%", job.title);
-			$(".work-entry:last").append(title);
-		    var dates = HTMLprojectDates.replace("%data%", job.dates);
+			employer += title;
+			$(".work-entry:last").append(employer);
+			var dates = HTMLprojectDates.replace("%data%", job.dates);
 			$(".work-entry:last").append(dates);
 		    var loc = HTMLworkLocation.replace("%data%", job.location);
 			$(".work-entry:last").append(loc);
 			var desc = HTMLworkDescription.replace("%data%", job.description);
+			$(".work-entry:last").append(desc);
 		    //console.log(job);
 		}
 		
