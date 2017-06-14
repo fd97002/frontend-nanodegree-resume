@@ -197,8 +197,8 @@ var projects = {
 			"dates": "2014",
 			"description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore",
 			"images": [
-				"www.google.com",
-				"www.yahoo.com"
+				"images/proj1.JPG",
+				"images/proj2.JPG"
 			]
 		},
 		{
@@ -206,8 +206,7 @@ var projects = {
 			"dates": "2015",
 			"description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore",
 			"images": [
-				"www.googleaa.com",
-				"www.yahooss.com"
+				"images/proj1.JPG"
 			]
 		}
 		],
@@ -223,7 +222,14 @@ var projects = {
 			$(".project-entry:last").append(dates);
 			var desc = HTMLprojectDescription.replace("%data", project.description);
 		    $(".project-entry:last").append(desc);
-			//z`console.log(project);
+			
+			project.images.forEach( 
+				function(img)
+				{
+					var image = HTMLprojectImage.replace("%data%", img);
+					$(".project-entry:last").append(image);
+				});
+			
 		}
 		
 		projects.proj.forEach (func);	
